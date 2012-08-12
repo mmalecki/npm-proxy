@@ -2,7 +2,7 @@ var http = require('http');
 
 var re = /^\/\-\/((\w+)\-(.+)\.tgz)$/;
 
-httpProxy.createServer(function (req, res, proxy) {
+http.createServer(function (req, res) {
   var match, path, h;
   if (match = re.exec(req.url)) {
     path = '/registry/' + match[2] + '/' + match[1];
