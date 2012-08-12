@@ -1,11 +1,11 @@
 var http = require('http');
 
-var re = /^\/\-\/(([-\w\.]+)\-(.+)\.tgz)$/;
+var re = /^\/-\/((.*?(?=-\d\.))-(.*?(?=.\w{3})))/;
 
 http.createServer(function (req, res) {
   var match, path, h;
   if (match = re.exec(req.url)) {
-    path = '/registry/' + match[2] + '/' + match[1];
+    path = '/registry/' + match[2] + '/' + match[1] + '.tgz';
     console.log(req.url + ' -> ' + path);
     h = http.get({
       host: 'isaacs.ic.ht',
