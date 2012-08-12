@@ -16,7 +16,7 @@ http.createServer(function (req, res) {
       regRes.pipe(res);
     });
     h.on('error', function (err) {
-      req.writeHead(500);
+      req.writeHead(502);
       res.write('Proxy error!\n');
     });
   }
