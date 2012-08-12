@@ -1,5 +1,4 @@
-var http = require('http'),
-    httpProxy = require('http-proxy');
+var http = require('http');
 
 var re = /^\/\-\/((\w+)\-(.+)\.tgz)$/;
 
@@ -8,7 +7,7 @@ httpProxy.createServer(function (req, res, proxy) {
   if (match = re.exec(req.url)) {
     path = '/registry/' + match[2] + '/' + match[1];
     console.log(req.url + ' -> ' + path);
-    var h = http.get({
+    h = http.get({
       host: 'isaacs.ic.ht',
       path: path
     }, function (regRes) {
@@ -24,7 +23,7 @@ httpProxy.createServer(function (req, res, proxy) {
   else {
     path = req.url;
     console.log(req.url + ' -> ' + path);
-    var h = http.get({
+    h = http.get({
       host: 'registry.npmjs.org',
       path: path
     }, function (regRes) {
