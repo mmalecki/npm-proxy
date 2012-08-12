@@ -17,7 +17,7 @@ http.createServer(function (req, res) {
     });
     h.on('error', function (err) {
       req.writeHead(500);
-      res.write('Proxy error!\n');
+      res.write('The npm database is currently unavailable\n');
     });
   }
   else {
