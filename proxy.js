@@ -1,6 +1,6 @@
 var http = require('http');
 
-var re = /^\/-\/((.*?(?=-\d\.))-(.*?(?=.\w{3})))/;
+var re = /^\/-\/((.*?(?=-\d+\.))-(.*?(?=.\w{3})))/;
 
 http.createServer(function (req, res) {
   var match, path, h;
